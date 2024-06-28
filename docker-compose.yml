@@ -6,7 +6,7 @@ services:
     php:
         build: .docker/php
         ports:
-            - 5173:5173
+            - 5173:5173 # you can change port
         volumes:
             - .:/var/www:cached
 
@@ -16,7 +16,7 @@ services:
     nginx:
         image: nginx
         ports:
-            - 80:80
+            - 80:80 # you can change port
         volumes:
             - .:/var/www
             - .docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
@@ -30,7 +30,7 @@ services:
     db:
         image: mysql:8.1
         ports:
-            - 3306:3306
+            - 3306:3306 # you can change port
         volumes:
             - .docker/db/data:/var/lib/mysql
             - .docker/logs:/var/log/mysql
@@ -48,7 +48,7 @@ services:
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         ports:
-            - 8080:80
+            - 8080:80 # you can change port but 80 must same with port php
         links:
             - db
         environment:
@@ -64,7 +64,7 @@ services:
     adminer:
         image: adminer
         ports:
-            - 9090:8080
+            - 9090:8080 # you can change port but 8080 must same with port phpMyAdmin
         depends_on:
         - db
 
@@ -74,8 +74,8 @@ services:
     mail:
         image: axllent/mailpit:latest
         ports:
-        - 8025:8025
-        - 1025:1025
+        - 8025:8025 # you can change port
+        - 1025:1025 # you can change port
 
     ####################################################################################################
     # Redis
@@ -86,7 +86,7 @@ services:
         volumes:
         - .docker/redis/data:/data
         ports:
-        - 6379:6379
+        - 6379:6379 # you can change port
 
     # ####################################################################################################
     # # DATABASE (MariaDB)
@@ -94,7 +94,7 @@ services:
     # db:
     #     image: mariadb:10.11
     #     ports:
-    #         - 3306:3306
+    #         - 3306:3306 # you can change port
     #     volumes:
     #         - .docker/db/data:/var/lib/mysql
     #         - .docker/logs:/var/log/mysql
@@ -112,7 +112,7 @@ services:
     # db:
     #     image: postgres:16
     #     ports:
-    #         - 5432:5432
+    #         - 5432:5432 # you can change port
     #     volumes:
     #         - .docker/db/data:/var/lib/postgresql/data
     #         - .docker/db/sql:/docker-entrypoint-initdb.d
@@ -127,7 +127,7 @@ services:
     # pgadmin:
     #     image: dpage/pgadmin4
     #     ports:
-    #         - 5050:80
+    #         - 5050:80 # you can change port but 80 must same with port php
     #     environment:
     #         - PGADMIN_DEFAULT_EMAIL=admin@admin.com
     #         - PGADMIN_DEFAULT_PASSWORD=password
