@@ -23,8 +23,10 @@
 # How To Deploy
 
 ### For first time only !
-- `git clone https://github.com/refactorian/laravel-docker.git`
-- `cd laravel-docker`
+- `git clone https://github.com/vnot01/laravel-docker-main.git`
+- `extract file`
+- `rename to laravel-docker-main or anything you like`
+- `cd laravel-docker-main`
 - `docker compose up -d --build`
 - `docker compose exec phpmyadmin chmod 777 /sessions`
 - `docker compose exec php bash`
@@ -38,8 +40,7 @@
 # Notes
 
 ### Laravel Versions
-- [Laravel 11.x](https://github.com/refactorian/laravel-docker/tree/main)
-- [Laravel 10.x](https://github.com/refactorian/laravel-docker/tree/laravel_10x)
+- [Laravel 11.x](https://github.com/vnot01/laravel-docker-main)
 
 ### Laravel App
 - URL: http://localhost
